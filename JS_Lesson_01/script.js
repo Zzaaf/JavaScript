@@ -1,3 +1,4 @@
+//Первый урок по JS
 //Создаём переменные.
 var budget;
 var shopName;
