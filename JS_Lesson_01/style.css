@@ -1,0 +1,11 @@
+html {
+	background-color: #fff;
+}
+body {
+	width: 960px;
+	min-height: 500px;
+	margin: 10px auto;
+	background-color: lightblue;
+	font-size: 18px;
+	font-weight: 900;
+}
