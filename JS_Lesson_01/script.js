@@ -11,7 +11,7 @@ console.log(shopName);
 
 //Создаём объект и массив.
 var mainList = {};
-var shopGoods = ['', '', '']
+var shopGoods = ['', '', ''];
 
 //Заполняем объект.
 mainList = {
