@@ -4,7 +4,7 @@ let money,
 				time,
 				price,
 				newPrice,
-				dayBudget,
+				dayBudget
 //Объявляем функцию, где задаются стартоые вопросы.
 function start() {
 	money = prompt("Ваш бюджет?", '');
