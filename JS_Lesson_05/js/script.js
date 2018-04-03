@@ -1,7 +1,7 @@
 let li = document.querySelector('.menu-item'),
 				newMenuItem = li.cloneNode(false),
 				ul = document.getElementsByTagName('ul')[0],
-				ulTest = document.body.getElementsByClassName('.menu'),
+				ulTest = document.body.getElementsByClassName('menu')[0],
 				title = document.getElementById('title'),
 				adv = document.querySelector('.adv'),
 				column = document.querySelectorAll('.column');
