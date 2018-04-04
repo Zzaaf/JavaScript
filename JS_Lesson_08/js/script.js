@@ -33,4 +33,47 @@ window.addEventListener('DOMContentLoaded', function() {
 					}
 			};
 	});
+
+	//Countdown
+	//Зададим время в формате местной зоны, указав кроме даты ещё и время полуночи
+	let deadline = '2018-04-06 00:00';
+	//Получаем время,оставшееся до заданного, и разбираем его на составляющие
+	function getRemainingTime(endTime) {
+		let difTime = Date.parse(endTime) - Date.parse(new Date()),
+						seconds = Math.floor((difTime/1000) % 60),
+						minutes = Math.floor((difTime/1000/60) % 60),
+						hours = Math.floor(difTime/1000/60/60);
+						//Полученные значения возвращаем в объект
+						return {
+							'total': difTime,
+							'seconds': seconds,
+							'minutes': minutes,
+							'hours': hours
+						};
+	};
+	//С интервалом в 1 секунду записываем оставшееся время в сответствующие поля сайта
+	function setClock(id, endTime) {
+		let timer = document.getElementById(id),
+						hours = timer.querySelector('.hours'),
+						minutes = timer.querySelector('.minutes'),
+						seconds = timer.querySelector('.seconds');
+		function updateClock() {
+			let t = getRemainingTime(endTime);
+			hours.innerHTML = t.hours;
+			minutes.innerHTML = t.minutes;
+			if(t.seconds > 9) {
+				seconds.innerHTML = t.seconds;
+			} else {
+				seconds.innerHTML = '0' + t.seconds;
+			};
+			if( t.total <= 0 ) {
+				clearInterval(timeInterval);
+			}
+		};
+			updateClock();
+			let timeInterval = setInterval(updateClock, 1000);
+		};
+
+	setClock('timer', deadline);
 });
+

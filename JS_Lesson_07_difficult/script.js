@@ -1,5 +1,5 @@
 let btn = document.getElementsByTagName('button')[0],
-				smile = document.getElementsByTagName('img')[0];
+		smile = document.getElementsByTagName('img')[0];
 var direction = 1;
 var end = 0;
 
@@ -24,6 +24,7 @@ function animate(draw, duration) {
 
   // нарисовать состояние анимации в момент timePassed
   draw(timePassed);
+  
   if(timePassed > duration) {
   	end = 0;
   	direction = 1;
