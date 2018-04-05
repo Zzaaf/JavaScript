@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	//Countdown
 	//Зададим время в формате местной зоны, указав кроме даты ещё и время полуночи
-	let deadline = '2018-04-06 00:00';
+	let deadline = '2018-04-10 00:00';
 	//Получаем время,оставшееся до заданного, и разбираем его на составляющие
 	function getRemainingTime(endTime) {
 		let difTime = Date.parse(endTime) - Date.parse(new Date()),
@@ -57,23 +57,33 @@ window.addEventListener('DOMContentLoaded', function() {
 						hours = timer.querySelector('.hours'),
 						minutes = timer.querySelector('.minutes'),
 						seconds = timer.querySelector('.seconds');
+		let timeInterval = setInterval(updateClock, 1000);
+		updateClock();
 		function updateClock() {
 			let t = getRemainingTime(endTime);
-			hours.innerHTML = t.hours;
-			minutes.innerHTML = t.minutes;
-			if(t.seconds > 9) {
-				seconds.innerHTML = t.seconds;
+			if(t.hours >=0 && t.hours <= 9) {
+				hours.innerHTML = '0' + t.hours;
 			} else {
-				seconds.innerHTML = '0' + t.seconds;
+				hours.innerHTML = t.hours;
 			};
+			if(t.minutes >=0 && t.minutes <= 9) {
+				minutes.innerHTML = '0' + t.minutes;
+			} else {
+				minutes.innerHTML = t.minutes;
+			};
+			if(t.seconds >=0 && t.seconds <= 9) {
+				seconds.innerHTML = '0' + t.seconds;
+			} else {
+				seconds.innerHTML = t.seconds;
+			};
+
 			if( t.total <= 0 ) {
 				clearInterval(timeInterval);
 			}
 		};
-			updateClock();
-			let timeInterval = setInterval(updateClock, 1000);
-		};
+	};
 
 	setClock('timer', deadline);
 });
+
 
