@@ -14,7 +14,7 @@ function animate(draw, duration) {
   // определить, сколько прошло времени с начала анимации
   var timePassed = time - start;
 
-  console.log(timePassed, direction, end)
+  console.log(timePassed, time, start, direction, end)
     // возможно небольшое превышение времени, в этом случае зафиксировать конец
   if(timePassed > duration / 2 && direction == 1) {
   	timePassed = duration / 2;
