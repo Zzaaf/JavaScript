@@ -12,6 +12,8 @@ let li = document.querySelector('.menu-item'),
 newMenuItem.innerHTML = 'Пятый пункт';
 //Вставляем новый элемент списка в конец всего списка
 ul.appendChild(newMenuItem);
+//Меняем местами элементы
+ul.insertBefore(ul.children[2], ul.children[1]);
 //Меняем картинку заднего фона
 document.body.style.backgroundImage = 'url(img/apple_true.jpg)';
 //Меняем текст заголовка
